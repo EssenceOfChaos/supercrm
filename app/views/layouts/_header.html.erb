@@ -1,0 +1,20 @@
+<header id="header">
+
+  <div class="mui-appbar mui--appbar-line-height">
+    <div class="mui-container-fluid">
+      <a class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-sidedrawer">☰</a>
+      <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">☰</a>
+      <span class="mui--text-title mui--visible-xs-inline-block">Talis</span>
+      <% if user_signed_in? %>
+      <%=link_to 'Here', '#', class: "mui-btn mui-btn--flat"%>
+      <%=link_to 'There', '#', class: "mui-btn mui-btn--flat"%>
+      <%=link_to 'Sign out', destroy_user_session_path, class: "mui-btn mui-btn--flat", method: :delete %>
+      <%else%>
+       <%=link_to 'Here', '#', class: "mui-btn mui-btn--flat"%>
+       <%=link_to 'There', '#', class: "mui-btn mui-btn--flat"%>
+       <%=link_to 'Sign in', new_user_session_path, class: "mui-btn mui-btn--flat"%>
+       <%=link_to 'Sign up', new_user_registration_path, class: "mui-btn mui-btn--flat"%>
+       <%end%>
+    </div>
+  </div>
+</header>

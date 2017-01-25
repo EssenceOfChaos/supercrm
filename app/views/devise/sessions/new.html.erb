@@ -1,0 +1,42 @@
+<br>
+<div class="mui-container-fluid">
+<div id="content-wrapper">
+  <div class="mui-row">
+    <div class="mui-col-md-5">
+<legend id="forms"><h2>Log in</h2></legend>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+ 
+  <div class="mui-textfield mui-textfield--float-label">
+    <%= f.email_field :email, autofocus: true %>
+    <label>Email</label>
+  </div>
+  
+  <div class="mui-textfield mui-textfield--float-label">
+    <%= f.password_field :password, autocomplete: "off" %>
+    <label>Password</label>
+  </div>
+<% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Log in", class: 'mui-btn mui-btn--raised' %>
+  </div>
+<% end %>
+<br>
+ <div class="mui-row">
+    <div class="mui-col-md-8 mui-col-md-offset-8">
+      <div class="mui-panel">
+<%= render "devise/shared/links" %>
+</div>
+    </div>
+
+
+
+</div>
+</div>
+</div>
+</div>
