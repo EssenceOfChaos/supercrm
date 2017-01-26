@@ -2,7 +2,7 @@
 <div class="mui-container-fluid">
 <div id="content-wrapper">
   <div class="mui-row">
-    <div class="mui-col-md-5">
+    <div class="mui-col-md-6">
 <legend id="forms"><h2>Log in</h2></legend>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
  
@@ -27,8 +27,9 @@
   </div>
 <% end %>
 <br>
+</div>
  <div class="mui-row">
-    <div class="mui-col-md-8 mui-col-md-offset-8">
+    <div class="mui-col-md-4 mui-col-md-offset-4">
       <div class="mui-panel">
 <%= render "devise/shared/links" %>
 </div>

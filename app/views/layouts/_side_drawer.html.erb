@@ -1,11 +1,11 @@
 <div id="sidedrawer" class="mui--no-user-select">
   <div id="sidedrawer-brand" class="mui--appbar-line-height">
-  <span class="mui--text-title">Talis</span>
+  <span class="mui--text-title"><%=current_time.strftime("%b,%d, %G")%></span>
 </div>
 <div class="mui-divider"></div>
 <ul>
   <li>
-    <strong>Category 1</strong>
+    <strong>Today's Agenda</strong>
     <ul>
       <li><a href="#">Item 1</a></li>
       <li><a href="#">Item 2</a></li>
@@ -13,7 +13,7 @@
     </ul>
   </li>
   <li>
-    <strong>Category 2</strong>
+    <strong>Upcoming</strong>
     <ul>
       <li><a href="#">Item 1</a></li>
       <li><a href="#">Item 2</a></li>
@@ -21,7 +21,7 @@
     </ul>
   </li>
   <li>
-    <strong>Category 3</strong>
+    <strong>Notes</strong>
     <ul>
       <li><a href="#">Item 1</a></li>
       <li><a href="#">Item 2</a></li>

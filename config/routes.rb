@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :tasks
   root 'pages#index'
   get 'pages/index'
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
