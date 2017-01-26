@@ -1,37 +1,51 @@
 <div id="content-wrapper">
 <div class="mui-container-fluid">
-<p id="notice"><%= notice %></p>
-
+<br>
+<br>
 <h1>Tasks</h1>
 
-<table>
+<table class="ui fixed single line sortable celled table">
   <thead>
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>Priority</th>
+      <th class="descending">Priority</th>
       <th>Due</th>
-      <th colspan="3"></th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
-
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
         <td><%= task.title %></td>
         <td><%= task.description %></td>
         <td><%= task.priority %></td>
-        <td><%= task.due %></td>
+        <td><%= task.due.strftime("%b, %d") %></td>
         <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="warning"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td class="negative"><i class="trash icon"></i><%= link_to 'Destroy', task, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+    <th><strong>Total Tasks: <%=@tasks.count%></strong></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th colspan="3"></th>
+  </tr>
+  </tfoot>
 </table>
-
 <br>
 
-<%= link_to 'New Task', new_task_path %>
+<%= link_to 'New Task', new_task_path, class: 'ui basic primary button' %>
 </div>
 </div>
+<script>
+
+  $('table').tablesort();
+ 
+
+
+</script>

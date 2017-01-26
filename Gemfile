@@ -32,8 +32,8 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'jquery-turbolinks'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -54,8 +54,9 @@ group :development do
   gem 'capistrano3-puma',   require: false
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'meta_request'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+ruby '2.3.1'

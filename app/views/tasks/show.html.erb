@@ -1,5 +1,8 @@
+<div id="content-wrapper">
+<div class="mui-container-fluid">
+<br>
 <p id="notice"><%= notice %></p>
-
+<br>
 <p>
   <strong>Title:</strong>
   <%= @task.title %>
@@ -17,8 +20,10 @@
 
 <p>
   <strong>Due:</strong>
-  <%= @task.due %>
+  <%= @task.due.strftime("%b, %d") %>
 </p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
+</div>
+</div>
