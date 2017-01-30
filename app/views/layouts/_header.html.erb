@@ -9,14 +9,29 @@
       <% if user_signed_in? %>
       <%=link_to 'Home', root_path, class: "mui-btn mui-btn--flat"%>
       <%=link_to 'Tasks', tasks_path, class: "mui-btn mui-btn--flat"%>
+      <%=link_to 'Settings', pages_settings_path, class: "mui-btn mui-btn--flat"%>
+
+   
+
       <span class="mui--pull-right">
       <%=link_to 'Sign out', destroy_user_session_path, class: "mui-btn mui-btn--flat", method: :delete %>
       </span>
+
+
+   <span class="mui--pull-right">
+      <%=link_to 'Profile', edit_user_registration_path, class: "mui-btn mui-btn--flat"%>
+      </span>
+
+      
       <%else%>
        <%=link_to 'Home', '#', class: "mui-btn mui-btn--flat"%>
        <%=link_to 'There', '#', class: "mui-btn mui-btn--flat"%>
+       <span class="mui--pull-right">
        <%=link_to 'Sign in', new_user_session_path, class: "mui-btn mui-btn--flat"%>
+       </span>
+       <span class="mui--pull-right">
        <%=link_to 'Sign up', new_user_registration_path, class: "mui-btn mui-btn--flat"%>
+       </span>
        <%end%>
     </div>
   </div>
