@@ -1,6 +1,4 @@
-class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  
-  skip_before_filter :verify_authenticity_token
+class CallbacksController < Devise::OmniauthCallbacksController
   def all
     auth = request.env["omniauth.auth"]
     # Find an identity here
@@ -16,13 +14,13 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         # account. But we found the identity and the user associated with it 
         # is the current user. So the identity is already associated with 
         # this user. So let's display an error message.
-        redirect_to user_url, notice: "Already linked that account!"
+        redirect_to root_path, notice: "Already linked that account!"
       else
         # The identity is not associated with the current_user so lets 
         # associate the identity
         @identity.user = current_user
         @identity.save()
-        redirect_to user_url, notice: "Successfully linked that account!"
+        redirect_to root_path, notice: "Successfully linked that account!"
       end
     else
       if @identity.user.present?
@@ -46,5 +44,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   alias_method :facebook, :all
   alias_method :twitter, :all
-  alias_method :google_oauth2, :all 
+  alias_method :google_oauth2, :all
+  alias_method :linkedin, :all
+  alias_method :github, :all
+
+  
 end

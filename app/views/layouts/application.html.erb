@@ -15,23 +15,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%=favicon_link_tag 'favicon.ico'%>
   
   </head>
 
   <body>
   <%=render 'layouts/side_drawer' %>
   <%=render 'layouts/header' %>
-  <%if flash.notice || flash.alert  %>
-  <div class="mui-panel">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%else%>
-  <p> </p>
-  <%end%>
-</div>
-<br>
 <div id="content-wrapper">
 <div class="mui-container-fluid">
+<br>
+<br>
+<br>
+<%= semantic_flash %>
     <%= yield %>
   </body>
   <%= debug(params) if Rails.env.development? %>

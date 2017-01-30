@@ -1,3 +1,27 @@
+// MAIN STYLING PAGE //
+
+//google fonts
+/*
+  font-family: 'Roboto Slab', serif;
+  font-family: 'Playfair Display', serif;
+  font-family: 'Quicksand', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Dancing Script', cursive;
+*/
+
+
+
+html {
+  font-family: 'Arsenal', sans-serif;
+  background: url('bg-blue2.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+
 nav {
     display: block;
 }
@@ -8,3 +32,5 @@ nav {
 .ui.icon.button {
 	margin-left: 65px;
 }
+
+

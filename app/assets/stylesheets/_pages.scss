@@ -1,6 +1,6 @@
 
 
-// Main styling for pages //
+// Styling for pages controller //
 
 //google fonts
 /*
@@ -197,4 +197,19 @@ buttons {
     border-color: #FFAB91;
     background-color: #FFF8E1;
   }
+}
+
+#error_explanation {
+  font-size: 1.3em;
+  font-family: 'Raleway', sans-serif;
+  color: red;
+  font-weight: bold;
+}
+
+#myImage {
+  position: relative;top:13px;
+  padding-top: 5px;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
 }

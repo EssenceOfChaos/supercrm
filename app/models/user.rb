@@ -1,19 +1,34 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Paperclip
 
 
-  has_many :identities, :dependent => :destroy
-
-
+  TEMP_EMAIL_PREFIX = 'change@me'
+  TEMP_EMAIL_REGEX = /\Achange@me/
+## associations ##
+embeds_one :user_linkedin_connection, :class_name => 'User::LinkedinConnection'
+has_many :identities, :dependent => :destroy
+has_many :tasks
+## validations ##
+validates_presence_of :email, uniqueness: true
+validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+validates :password, :presence => true, :confirmation => true, length: { in: 6..45 }, on: :create
+## devise configuration ##
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:twitter]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:twitter, :linkedin]
 
   ## Database authenticatable
-  field :email,              type: String, default: ""
-  field :encrypted_password, type: String, default: ""
-  field :username,           type: String
-  field :admin,              type: Boolean, default: false
+field :email,              type: String, default: ""
+field :encrypted_password, type: String, default: ""
+field :username,           type: String
+field :admin,              type: Boolean, default: false
+
+field :uid, type: String
+field :provider, type: String
+field :name, type: String
+field :image, type: String
+
 
   ## Recoverable
   field :reset_password_token,   type: String
@@ -29,8 +44,6 @@ class User
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
 
-
-
 def self.from_omniauth(auth)
   where(auth.slice(:uid, :provider)).first_or_create do |user|
     user.uid = auth.uid
@@ -41,6 +54,34 @@ def self.from_omniauth(auth)
   end
 end
 
+
+after_create :first_identity
+
+ def list_tasks
+  @tasks = Tasks.where(:user_id == current_user.user_id)
+ end
+
+def first_identity
+  self.identities.first_or_create!(:uid => self.uid, :provider => self.provider, :user_id => self.id)
+  Identity.where(:user_id => nil).destroy_all
+end
+
+def connect_to_linkedin(auth)
+  self.provider = auth.provider
+  self.uid = auth.uid
+  self.user_linkedin_connection = User::LinkedinConnection.new(:token => auth["extra"]["access_token"].token, :secret => auth["extra"]["access_token"].secret)
+  unless self.save
+    return false
+  end
+  true
+end
+
+def disconnect_from_linkedin!
+  self.provider = nil
+  self.uid = nil
+  self.user_linkedin_connection = nil
+  self.save!
+end
 
 
 
@@ -55,3 +96,6 @@ end
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
 end
+
+# FIXME cannot update user attributes through devise> registrations > edit
+# FIXME neither linkedin nor twitter omniauth are working properly

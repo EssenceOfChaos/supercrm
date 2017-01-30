@@ -7,8 +7,13 @@
   <li>
     <strong>Today's Agenda</strong>
     <ul>
-      <li><%=link_to 'Tasks', tasks_path%></li>
-      <li><a href="#">Item 2</a></li>
+    <li><span data-tooltip="Home" data-position="right center">
+      <%=link_to semantic_icon('home'), root_path%>
+      </span></li>
+      <li><span data-tooltip="Tasks" data-position="right center">
+      <%=link_to semantic_icon('edit'), tasks_path%>
+      </span></li>
+      <li><%=link_to 'Settings', pages_settings_path%></li>
       <li><a href="#">Item 3</a></li>
     </ul>
   </li>
@@ -21,10 +26,15 @@
     </ul>
   </li>
   <li>
-    <strong>Notes</strong>
+    <strong>SuperCRM</strong>
     <ul>
-      <li><a href="#">Item 1</a></li>
-      <li><a href="#">Item 2</a></li>
+
+     <li><span data-tooltip="Settings" data-position="right center">
+      <%=link_to semantic_icon('settings'), pages_settings_path%>
+      </span></li> 
+      <li><span data-tooltip="Contact" data-position="right center">
+      <%=link_to semantic_icon('mail outline'), pages_contact_path%>
+      </span></li>
       <li><a href="#">Item 3</a></li>
     </ul>
   </li>
