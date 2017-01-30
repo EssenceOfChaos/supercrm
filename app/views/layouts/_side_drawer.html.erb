@@ -1,4 +1,4 @@
-<div id="sidedrawer" class="mui--no-user-select">
+<div id="sidedrawer" class="mui--no-user-select mui--z2">
   <div id="sidedrawer-brand" class="mui--appbar-line-height">
   <span class="mui--text-title"><%=current_time.strftime("%b,%d, %G")%></span>
 </div>
@@ -7,7 +7,7 @@
   <li>
     <strong>Today's Agenda</strong>
     <ul>
-      <li><a href="#">Item 1</a></li>
+      <li><%=link_to 'Tasks', tasks_path%></li>
       <li><a href="#">Item 2</a></li>
       <li><a href="#">Item 3</a></li>
     </ul>

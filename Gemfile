@@ -28,10 +28,15 @@ gem 'jbuilder', '~> 2.5'
 
 #ADDED GEMS#
 gem 'mongoid', '~> 6.0.0'
+gem "will_paginate_mongoid"
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'jquery-turbolinks'
+gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
+gem 'will_paginate', '~> 3.1.0'
+gem "will_paginate_semantic_ui"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

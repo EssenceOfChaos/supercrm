@@ -1,37 +1,60 @@
+<br>
 <div id="content-wrapper">
 <div class="mui-container-fluid">
 <p id="notice"><%= notice %></p>
 
 <h1>Tasks</h1>
+<div class="ui icon button" data-tooltip="Create new task">
+<%=link_to semantic_icon('add', 'sign'), new_task_path %>
+</div>
 
-<table>
+<table class="ui fixed single line sortable celled table">
   <thead>
     <tr>
-      <th>Title</th>
+      <th>Sortable  <i class="table icon"></i></th>
       <th>Description</th>
-      <th>Priority</th>
+      <th class="descending two wide">Priority</th>
+      <th>Created at</th>
       <th>Due</th>
-      <th colspan="3"></th>
+      <th colspan="2" class="four wide"> Actions</th>
     </tr>
   </thead>
-
   <tbody>
-    <% @tasks.each do |task| %>
+   <% @tasks.each do |task| %>
       <tr>
         <td><%= task.title %></td>
         <td><%= task.description %></td>
         <td><%= task.priority %></td>
-        <td><%= task.due %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= time_ago_in_words(task.created_at) %> ago</td>
+        <td><%= task.due.strftime(" %a, %I:%M%p") %></td>
+        <td class="positive"><%= link_to 'Show', task %></td>
+        <td class="negative"><%= link_to 'Destroy', task, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %><i class="trash outline icon"></i></td>
       </tr>
     <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+    <th>Total: <%=@tasks.count%></th>
+    <th></th>
+    <th></th>
+    <th colspan="4"></th>
+  </tr>
+  </tfoot>
 </table>
-
 <br>
 
-<%= link_to 'New Task', new_task_path %>
+
+
+<div class="segment">
+<% if @tasks.count <= 10%>
+
+<%= will_paginate @collection, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+<%else%>
+<p> Page 1 of 1 </p>
+<%end%>
 </div>
 </div>
+</div>
+<script>
+$('table').tablesort()
+</script>
