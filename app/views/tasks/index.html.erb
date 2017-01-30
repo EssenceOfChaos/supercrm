@@ -1,8 +1,8 @@
 <br>
 <div id="content-wrapper">
 <div class="mui-container-fluid">
-<p id="notice"><%= notice %></p>
-
+<br>
+<br>
 <h1>Tasks</h1>
 <div class="ui icon button" data-tooltip="Create new task">
 <%=link_to semantic_icon('add', 'sign'), new_task_path %>
@@ -13,10 +13,16 @@
     <tr>
       <th>Sortable  <i class="table icon"></i></th>
       <th>Description</th>
+<<<<<<< HEAD
       <th class="descending two wide">Priority</th>
       <th>Created at</th>
       <th>Due</th>
       <th colspan="2" class="four wide"> Actions</th>
+=======
+      <th class="descending">Priority</th>
+      <th>Due</th>
+      <th colspan="3">Actions</th>
+>>>>>>> ae29ce88347e53e4ca22f2f5008a93b0eec9a5b6
     </tr>
   </thead>
   <tbody>
@@ -25,24 +31,40 @@
         <td><%= task.title %></td>
         <td><%= task.description %></td>
         <td><%= task.priority %></td>
+<<<<<<< HEAD
         <td><%= time_ago_in_words(task.created_at) %> ago</td>
         <td><%= task.due.strftime(" %a, %I:%M%p") %></td>
         <td class="positive"><%= link_to 'Show', task %></td>
         <td class="negative"><%= link_to 'Destroy', task, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %><i class="trash outline icon"></i></td>
+=======
+        <td><%= task.due.strftime("%b, %d") %></td>
+        <td><%= link_to 'Show', task %></td>
+        <td class="warning"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td class="negative"><i class="trash icon"></i><%= link_to 'Destroy', task, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+>>>>>>> ae29ce88347e53e4ca22f2f5008a93b0eec9a5b6
       </tr>
     <% end %>
   </tbody>
   <tfoot>
     <tr>
+<<<<<<< HEAD
     <th>Total: <%=@tasks.count%></th>
     <th></th>
     <th></th>
     <th colspan="4"></th>
+=======
+    <th><strong>Total Tasks: <%=@tasks.count%></strong></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th colspan="3"></th>
+>>>>>>> ae29ce88347e53e4ca22f2f5008a93b0eec9a5b6
   </tr>
   </tfoot>
 </table>
 <br>
 
+<<<<<<< HEAD
 
 
 <div class="segment">
@@ -58,3 +80,15 @@
 <script>
 $('table').tablesort()
 </script>
+=======
+<%= link_to 'New Task', new_task_path, class: 'ui basic primary button' %>
+</div>
+</div>
+<script>
+
+  $('table').tablesort();
+ 
+
+
+</script>
+>>>>>>> ae29ce88347e53e4ca22f2f5008a93b0eec9a5b6

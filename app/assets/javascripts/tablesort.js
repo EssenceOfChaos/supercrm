@@ -129,4 +129,8 @@
 		});
 	};
 
+<<<<<<< HEAD
 })(window.Zepto || window.jQuery);
+=======
+})(window.Zepto || window.jQuery);
+>>>>>>> ae29ce88347e53e4ca22f2f5008a93b0eec9a5b6

@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 <br>
 <br>
 <div id="content-wrapper">
 <div class="mui-container-fluid">
 <br>
+=======
+<div id="content-wrapper">
+<div class="mui-container-fluid">
+<br>
+<p id="notice"><%= notice %></p>
+>>>>>>> ae29ce88347e53e4ca22f2f5008a93b0eec9a5b6
 <br>
 <p>
   <strong>Title:</strong>
@@ -21,7 +28,7 @@
 
 <p>
   <strong>Due:</strong>
-  <%= @task.due %>
+  <%= @task.due.strftime("%b, %d") %>
 </p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |

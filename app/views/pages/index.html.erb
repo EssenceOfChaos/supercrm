@@ -1,27 +1,30 @@
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/card.min.css" integrity="sha256-PgpU37VlFbkky1M4sQXWi4/+Vf7JqblZfu3uCmdE8kg=" crossorigin="anonymous" />
 </head>
-
-
 <div id="content-wrapper">
  <div class="mui--appbar-height"></div>
 <div class="mui-container-fluid">
-  <br>
 
- 
-  <h1>Welcome!</h1><br>
+ <div class="ui message">
+  <i class="close icon"></i>
+  <div class="header">
+    Welcome!
+  </div>
+  <p>You can change your user icon by visiting <a href="http://en.gravatar.com/">Gravatar</a>.</p>
+</div><br>
 
-<div class="ui raised card">
+<div class="ui raised card" >
   <div class="content">
     <div class="header"><%=current_user.email%></div>
     <div class="meta">
-      <span class="category">Employee</span>
+      <span class="category" >Employee</span>
     </div>
-    <div class="description">
+    <div class="description" >
       <p>This guy is this and that</p>
       <%= gravatar_for @user %>
+</div>
     </div>
-  </div>
+  
   <div class="extra content">
     <i class="check icon"></i>
     121 Votes
@@ -65,3 +68,9 @@
 </div>
 </div>
 </div>
+</div>
+<script>
+$(".close.icon").click(function(){
+  $(this).parent().hide(400);
+});
+</script>

@@ -28,10 +28,16 @@
 
   <div class="field">
     <%= f.label :due %>
-    <%= f.datetime_select :due %>
+    <%= f.date_field(:due, {:class => 'datepicker'}) %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+  $(document).ready(function($) {
+      $('.datepicker').datepicker();
+    });
+</script>
