@@ -150,8 +150,6 @@ production:
     default:
       uri: mongodb://supercrm:fs106513@ds157258.mlab.com:57258/heroku_bldl09m2
       database: talisman_production
-      hosts:
-        - mongodb://supercrm:fs106513@ds157258.mlab.com:57258/heroku_bldl09m2
       options:
         read:
           mode: :primary
