@@ -9,16 +9,22 @@
   font-family: 'Dancing Script', cursive;
 */
 
+// VARIABLES //
+// $maroon: #591E23;
+// $pink: #D94E67;
+// $cream: #F2D8A7;
+// $light-brown: #A68572;
+// $dark-brown: #73503C;
 
 
-html {
-  font-family: 'Arsenal', sans-serif;
-  background: url('bg-blue2.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+// html {
+//   font-family: 'Arsenal', sans-serif;
+//   background: url('bg-blue2.jpg') no-repeat center center fixed; 
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+// }
 
 
 
@@ -33,4 +39,12 @@ nav {
 	margin-left: 65px;
 }
 
+
+.mui-appbar {
+  background-color: $maroon;
+}
+
+#footer {
+  background-color: $maroon;
+}
 

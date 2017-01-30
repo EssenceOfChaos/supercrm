@@ -9,6 +9,7 @@
   <p>current user tasks::<%=current_user.tasks.count%></p>
   <p> current user username:: <%=current_user.username%></p>
   <p> last log in on:: <%=current_user.last_sign_in_at.strftime("%b,%d, %G")%></p>
+  <%=link_to 'Admin Area', admin_dashboard_path, class: 'ui secondary basic button' %>
 </div>
 
 

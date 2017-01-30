@@ -29,9 +29,10 @@
 <br>
 <%= semantic_flash %>
     <%= yield %>
-  </body>
+  
   <%= debug(params) if Rails.env.development? %>
 </div>
 </div>
   <%= render 'layouts/footer' %>
+  </body>
 </html>

@@ -67,6 +67,12 @@ buttons {
   z-index: 2;
   background-color: #fff;
   transition: transform 0.2s;
+  i.icon {
+    font-size: 1.3em;
+  }
+  a {
+    color: $dark-brown;
+  }
 }
 
 #content-wrapper {
