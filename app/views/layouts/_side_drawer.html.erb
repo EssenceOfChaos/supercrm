@@ -13,23 +13,24 @@
       <li><span data-tooltip="Tasks" data-position="right center">
       <%=link_to semantic_icon('edit'), tasks_path%>
       </span></li>
-      <li><%=link_to 'Settings', pages_settings_path%></li>
-      <li><a href="#">Item 3</a></li>
+      <li><span data-tooltip="Profile" data-position="right center">
+      <%=link_to semantic_icon('user'), edit_user_registration_path%>
+      </span></li>
     </ul>
   </li>
   <li>
     <strong>Upcoming</strong>
     <ul>
-      <li><a href="#">Item 1</a></li>
-      <li><a href="#">Item 2</a></li>
-      <li><a href="#">Item 3</a></li>
+      <li><a href="#">Thing 1</a></li>
+      <li><a href="#">Thing 2</a></li>
+      <li><a href="#">Thing 3</a></li>
     </ul>
   </li>
   <li>
     <strong>SuperCRM</strong>
     <ul>
     <li><span data-tooltip="Admin Area" data-position="right center">
-      <%=link_to semantic_icon('dashboard'), pages_settings_path%>
+      <%=link_to semantic_icon('dashboard'), admin_dashboard_path%>
       </span></li>
 
      <li><span data-tooltip="Settings" data-position="right center">

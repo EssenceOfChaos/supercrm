@@ -6,38 +6,40 @@ class User
 
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
+
+## scopes ##
+  scope :admin, -> {where(:admin => true)}
 ## associations ##
-embeds_one :user_linkedin_connection, :class_name => 'User::LinkedinConnection'
-has_many :identities, :dependent => :destroy
-has_many :tasks
+  embeds_one :user_linkedin_connection, :class_name => 'User::LinkedinConnection'
+  has_many :identities, :dependent => :destroy
+  has_many :tasks
 ## validations ##
-validates_presence_of :email, uniqueness: true
-validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
-validates :password, :presence => true, :confirmation => true, length: { in: 6..45 }, on: :create
+  validates_presence_of :email, uniqueness: true
+  validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+  validates :password, :presence => true, :confirmation => true, length: { in: 6..45 }, on: :create
 ## devise configuration ##
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:twitter, :linkedin]
+## Database authenticatable
+  field :email,              type: String, default: ""
+  field :encrypted_password, type: String, default: ""
+  field :username,           type: String
+  field :admin,              type: Boolean, default: false
 
-  ## Database authenticatable
-field :email,              type: String, default: ""
-field :encrypted_password, type: String, default: ""
-field :username,           type: String
-field :admin,              type: Boolean, default: false
-
-field :uid, type: String
-field :provider, type: String
-field :name, type: String
-field :image, type: String
+  field :uid, type: String
+  field :provider, type: String
+  field :name, type: String
+  field :image, type: String
 
 
-  ## Recoverable
-  field :reset_password_token,   type: String
-  field :reset_password_sent_at, type: Time
+## Recoverable
+    field :reset_password_token,   type: String
+    field :reset_password_sent_at, type: Time
 
-  ## Rememberable
+## Rememberable
   field :remember_created_at, type: Time
 
-  ## Trackable
+## Trackable
   field :sign_in_count,      type: Integer, default: 0
   field :current_sign_in_at, type: Time
   field :last_sign_in_at,    type: Time

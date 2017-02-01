@@ -1,7 +1,5 @@
 <br>
 
-<p id="notice"><%= notice %></p>
-
 <h1>Tasks</h1>
 <div class="ui icon button" data-tooltip="Create new task">
 <%=link_to semantic_icon('add', 'sign'), new_task_path %>
@@ -37,7 +35,9 @@
     <th><strong>Total: <%=@tasks.count%></strong></th>
     <th></th>
     <th></th>
-    <th colspan="4"></th>
+    <th></th>
+    <th></th>
+    <th colspan="2"></th>
   </tr>
   </tfoot>
 </table>
