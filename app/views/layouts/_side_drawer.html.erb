@@ -5,7 +5,7 @@
 <div class="mui-divider"></div>
 <ul>
   <li>
-    <strong>Today's Agenda</strong>
+    <strong>Agenda</strong>
     <ul>
     <li><span data-tooltip="Home" data-position="right center">
       <%=link_to semantic_icon('home'), root_path%>
@@ -13,15 +13,15 @@
       <li><span data-tooltip="Tasks" data-position="right center">
       <%=link_to semantic_icon('edit'), tasks_path%>
       </span></li>
-      <li><span data-tooltip="Profile" data-position="right center">
-      <%=link_to semantic_icon('user'), edit_user_registration_path%>
-      </span></li>
+    
     </ul>
   </li>
   <li>
-    <strong>Upcoming</strong>
+    <strong>Customer Base</strong>
     <ul>
-      <li><a href="#">Thing 1</a></li>
+      <li><span data-tooltip="Customers" data-position="right center">
+      <%=link_to semantic_icon('users'), customers_path%>
+      </span></li>
       <li><a href="#">Thing 2</a></li>
       <li><a href="#">Thing 3</a></li>
     </ul>
@@ -32,12 +32,18 @@
     <li><span data-tooltip="Admin Area" data-position="right center">
       <%=link_to semantic_icon('dashboard'), admin_dashboard_path%>
       </span></li>
+      <li><span data-tooltip="Profile" data-position="right center">
+      <%=link_to semantic_icon('user'), edit_user_registration_path%>
+      </span></li>
 
      <li><span data-tooltip="Settings" data-position="right center">
       <%=link_to semantic_icon('settings'), pages_settings_path%>
       </span></li> 
       <li><span data-tooltip="Contact" data-position="right center">
       <%=link_to semantic_icon('mail outline'), pages_contact_path%>
+      </span></li>
+       <li><span data-tooltip="Sign out" data-position="right center">
+      <%=link_to semantic_icon('sign out'), destroy_user_session_path%>
       </span></li>
       
     </ul>
