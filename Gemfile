@@ -32,6 +32,9 @@ gem 'will_paginate', '~> 3.1.0'
 gem "will_paginate_semantic_ui"
 gem 'mongoid-paperclip'
 gem "paperclip", "~> 5.0.0"
+gem 'country_select'
+gem 'simple_form'
+gem 'carmen-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

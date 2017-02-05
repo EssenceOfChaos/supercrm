@@ -1,8 +1,12 @@
-<br>
 
-<h1>Editing "<%=@task.title%>"</h1>
+<br>
+<div class="ui raised very padded center aligned text container segment">
+  <h1 class="ui header">Editing "<%=@task.title%>"</h1>
+
 
 <%= render 'form', task: @task %>
 
 <%= link_to 'Show', @task %> |
 <%= link_to 'Back', tasks_path %>
+
+</div>

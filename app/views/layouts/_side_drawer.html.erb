@@ -43,7 +43,7 @@
       <%=link_to semantic_icon('mail outline'), pages_contact_path%>
       </span></li>
        <li><span data-tooltip="Sign out" data-position="right center">
-      <%=link_to semantic_icon('sign out'), destroy_user_session_path%>
+      <%=link_to semantic_icon('sign out'), destroy_user_session_path, method: :delete%>
       </span></li>
       
     </ul>
