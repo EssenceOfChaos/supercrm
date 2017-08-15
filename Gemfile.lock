@@ -77,11 +77,6 @@ GEM
     capistrano3-puma (1.2.1)
       capistrano (~> 3.0)
       puma (>= 2.6)
-    carmen (1.0.2)
-      activesupport (>= 3.0.0)
-    carmen-rails (1.0.1)
-      carmen (~> 1.0.0)
-      rails
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -278,7 +273,6 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capistrano3-puma
-  carmen-rails
   coffee-rails (~> 4.2)
   country_select
   devise
@@ -309,7 +303,7 @@ DEPENDENCIES
   will_paginate_semantic_ui
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.4.1p111
 
 BUNDLED WITH
-   1.13.7
+   1.15.3

@@ -1,27 +1,49 @@
 
-<form class="ui form">
+<%= form_for(customer, :html => {class: 'ui form'})  do |f|  %>
+  <% if customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+      <% task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="field">
     <label>Name</label>
     <div class="two fields">
       <div class="field">
-        <input type="text" name="shipping[first-name]" placeholder="First Name">
+       <%= f.text_field :first_name, placeholder: "First Name", autofocus: true%>
       </div>
       <div class="field">
-        <input type="text" name="shipping[last-name]" placeholder="Last Name">
+         <%= f.text_field :last_name, placeholder: "Last Name"%>
       </div>
     </div>
   </div>
+    <div class="two fields">
+  <div class="field">
+       <%= f.text_field :email, placeholder: "Email"%>
+      </div>
+        <div class="field">
+       <%= f.text_field :primary_phone, placeholder: "Phone"%>
+      </div>
+      </div>
   <div class="field">
     <label>Address</label>
     <div class="fields">
       <div class="twelve wide field">
-        <input type="text" name="shipping[address]" placeholder="Street Address">
+        <%= f.text_field :address, placeholder: "Street Address"%> 
       </div>
       <div class="four wide field">
-        <input type="text" name="shipping[address-2]" placeholder="Apt #">
+         <%= f.text_field :address_apt, placeholder: "Apt #"%>
       </div>
+      
     </div>
   </div>
  
-  <div class="ui basic primary button" tabindex="0">Create customer</div>
-</form>
+  <%=f.submit "Create Customer", class: 'ui basic primary button' %>
+  <%end%>
+
